@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GoodMorningApp</string>
+    <string name="notes">Notes</string>
+    <string name="weather">Weather</string>
+    <string name="money">Money</string>
+
 </resources>
