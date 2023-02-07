@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GoodMorningApp</string>
+    <string name="notes">Notes</string>
+    <string name="weather">Weather</string>
+    <string name="money">Money</string>
+</resources>
