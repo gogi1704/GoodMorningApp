@@ -3,10 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/noteFragment">
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.goodmorningapp.ui.fragments.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/moneyFragment"
+        android:name="com.example.goodmorningapp.ui.fragments.MoneyFragment"
+        android:label="fragment_money"
+        tools:layout="@layout/fragment_money" />
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.goodmorningapp.ui.fragments.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.goodmorningapp.ui.fragments.WeatherFragment"
+        android:label="fragment_weather"
+        tools:layout="@layout/fragment_weather" />
 </navigation>
