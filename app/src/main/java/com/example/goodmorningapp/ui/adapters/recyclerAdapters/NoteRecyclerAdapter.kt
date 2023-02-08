@@ -30,6 +30,9 @@ class NoteRecyclerAdapter() :
                 textTitle.text = item.title ?: ""
                 textContent.text = item.content
                 textDate.text = item.published
+                buttonFavourite.setOnClickListener {
+
+                }
             }
         }
     }

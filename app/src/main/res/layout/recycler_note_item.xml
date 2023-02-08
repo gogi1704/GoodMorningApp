@@ -35,4 +35,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="22/22/22" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_favourite"
+        android:padding="4dp"
+        app:iconGravity="textStart"
+        style="@style/Widget.Material3.Button.favourite"
+        app:icon="@drawable/ic_star_adaptive"
+        android:checkable="true"
+        android:layout_gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </androidx.cardview.widget.CardView>
