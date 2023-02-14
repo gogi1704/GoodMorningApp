@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.goodmorningapp.R
-import com.example.goodmorningapp.data.models.NoteModel
 import com.example.goodmorningapp.databinding.FragmentNoteBinding
 import com.example.goodmorningapp.ui.adapters.recyclerAdapters.NoteRecyclerAdapter
 import com.example.goodmorningapp.viewModels.NoteViewModel
@@ -35,28 +34,9 @@ class NoteFragment : Fragment() {
             }
         }
 
-
-        adapter.submitList(
-            listOf(
-                NoteModel(0, "title", "content", "22.22.22"),
-                NoteModel(
-                    0,
-                    "title",
-                    "content NoteModel(0 , \"title\"         <item name=\"colorPrimary\">@color/md_theme_dark_primary</item>\n        <item name=\"colorPrimary\">@color/md_theme_dark_primary</item>\n, \"content\" , \"22.22.22\")",
-                    "22.22.22"
-                ),
-                NoteModel(0, "title", "content", "22.22.22"),
-                NoteModel(0, "title", "content", "22.22.22"),
-                NoteModel(0, "title", "content", "22.22.22"),
-                NoteModel(
-                    0,
-                    "title",
-                    "content NoteModel(0 , \"title\" , \"content\" , \"22.22.22\")",
-                    "22.22.22"
-                ),
-                NoteModel(0, "title", "content", "22.22.22")
-            )
-        )
+        noteViewModel.dataFlow.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
 
 
         return binding.root

@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolBar"
             android:layout_width="match_parent"
             style="@style/Widget.Material3.Toolbar.myStyle"
             app:title="Notes"
@@ -73,6 +74,22 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:layout_gravity="bottom|end"
+        android:layout_margin="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_create"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_baseline_check_box_24"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/button_create_desc" />
+
+
+    </FrameLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

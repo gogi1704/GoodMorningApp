@@ -2,11 +2,12 @@ package com.example.goodmorningapp.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.goodmorningapp.data.models.NoteModel
 import com.example.goodmorningapp.repository.NoteRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,19 +17,12 @@ class NoteViewModel @Inject constructor(
     private val noteRepository: NoteRepositoryImpl
 ) : AndroidViewModel(application) {
 
-    private var data = listOf<NoteModel>()
-        set(value) {
-            field = value
-            _noteLiveData.value = value
-        }
-    private val _noteLiveData = MutableLiveData(data)
-    val noteLiveData
-        get() = _noteLiveData
+    val dataFlow = noteRepository.dataFlow.asLiveData(Dispatchers.Default)
 
 
-    fun getAll() {
+    fun addNote(note: NoteModel) {
         viewModelScope.launch {
-            data = noteRepository.getAll().map { NoteModel.fromEntity(it) }
+            noteRepository.insertNote(note.toEntity())
         }
     }
 

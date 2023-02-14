@@ -2,12 +2,13 @@ package com.example.goodmorningapp.data.db.dao
 
 import androidx.room.*
 import com.example.goodmorningapp.data.db.entities.NoteEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NoteDao {
 
     @Query("SELECT * FROM NoteEntity")
-   suspend fun getAll(): List<NoteEntity>
+    fun getAll(): Flow<List<NoteEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun insertNote(noteEntity: NoteEntity)
