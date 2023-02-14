@@ -16,6 +16,10 @@ class NoteRepositoryImpl @Inject constructor(private val dao: NoteDao) : NoteRep
         .map { it.toModel() }
         .flowOn(Dispatchers.Default)
 
+    override val favouriteDataFlow: Flow<List<NoteModel>> = dao.getAllFavourite()
+        .map { it.toModel() }
+        .flowOn(Dispatchers.Default)
+
     override suspend fun insertNote(noteEntity: NoteEntity) {
         dao.insertNote(noteEntity)
     }

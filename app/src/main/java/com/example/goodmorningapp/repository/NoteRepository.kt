@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
     val dataFlow: Flow<List<NoteModel>>
+    val favouriteDataFlow:Flow<List<NoteModel>>
     suspend fun insertNote(noteEntity: NoteEntity)
     suspend fun deleteNote(id: Int)
 

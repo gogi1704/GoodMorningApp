@@ -49,7 +49,6 @@ class CreateNoteFragment : Fragment() {
                 noteViewModel.addNote(note)
                 findNavController().navigateUp()
             }
-
         }
 
 

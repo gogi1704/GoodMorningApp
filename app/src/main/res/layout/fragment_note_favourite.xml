@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.NoteFragment">
+    tools:context=".ui.fragments.NoteFavouriteFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/topAppBar_container"
@@ -16,37 +17,23 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/appBar"
+            app:navigationIcon="@drawable/ic_back_24"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/favourite_menu"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+        android:id="@+id/recycler_favourite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_gravity="top"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
         tools:listitem="@layout/recycler_note_item" />
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_addNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_baseline_add_circle_outline_24"
-        android:contentDescription="@string/buttonadd_desc" />
-
 
 
 </FrameLayout>

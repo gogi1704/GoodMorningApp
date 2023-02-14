@@ -7,4 +7,5 @@
     <string name="title_hint">Title</string>
     <string name="content_hint">Content</string>
     <string name="button_create_desc">button_create_desc</string>
+    <string name="delete">Delete</string>
 </resources>

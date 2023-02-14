@@ -19,11 +19,18 @@ class NoteViewModel @Inject constructor(
 
     val dataFlow = noteRepository.dataFlow.asLiveData(Dispatchers.Default)
 
+    val favouriteDataFlow = noteRepository.favouriteDataFlow.asLiveData(Dispatchers.Default)
+
 
     fun addNote(note: NoteModel) {
         viewModelScope.launch {
             noteRepository.insertNote(note.toEntity())
         }
+    }
+
+
+    fun favourite(note: NoteModel) {
+        addNote(note.copy(isFavourite = !note.isFavourite))
     }
 
 }

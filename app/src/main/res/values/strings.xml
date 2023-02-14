@@ -7,6 +7,8 @@
     <string name="content_hint">Content</string>
     <string name="buttonadd_desc" translatable="false">buttonAdd_desc</string>
     <string name="button_create_desc">button_create_desc</string>
+    <string name="delete">Delete</string>
+
 
 
 </resources>

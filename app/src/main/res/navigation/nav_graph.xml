@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_noteFragment_to_createNoteFragment"
             app:destination="@id/createNoteFragment" />
+        <action
+            android:id="@+id/action_noteFragment_to_noteFavouriteFragment"
+            app:destination="@id/noteFavouriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/weatherFragment"
@@ -30,6 +33,15 @@
         tools:layout="@layout/fragment_create_note" >
         <action
             android:id="@+id/action_createNoteFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFavouriteFragment"
+        android:name="com.example.goodmorningapp.ui.fragments.NoteFavouriteFragment"
+        android:label="fragment_note_favourite"
+        tools:layout="@layout/fragment_note_favourite" >
+        <action
+            android:id="@+id/action_noteFavouriteFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
     </fragment>
 </navigation>

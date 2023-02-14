@@ -11,8 +11,11 @@ interface NoteDao {
     fun getAll(): Flow<List<NoteEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insertNote(noteEntity: NoteEntity)
+    suspend fun insertNote(noteEntity: NoteEntity)
 
     @Query("DELETE FROM NoteEntity WHERE id = :id")
-  suspend  fun deleteNote(id: Int)
+    suspend fun deleteNote(id: Int)
+
+    @Query("SELECT * FROM NoteEntity WHERE isFavourite = 1")
+    fun getAllFavourite():Flow<List<NoteEntity>>
 }

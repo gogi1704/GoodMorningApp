@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.setupWithNavController(navController)
 
-
         val bottomNavigation: NavigationBarView = binding.bottomNavigation
         bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
 
     }
 
