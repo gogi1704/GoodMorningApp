@@ -2,9 +2,9 @@ package com.example.goodmorningapp.ui.fragments
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.goodmorningapp.R
 import com.example.goodmorningapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationBarView
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,35 +18,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navHostFragment =
-            supportFragmentManager.findFragmentById(com.example.goodmorningapp.R.id.fragment_container) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         val navController = navHostFragment.navController
 
-//        setupActionBarWithNavController(
-//            navController, AppBarConfiguration(
-//                setOf(
-//                    com.example.goodmorningapp.R.id.notes,
-//                    com.example.goodmorningapp.R.id.weather,
-//                    com.example.goodmorningapp.R.id.money
-//                )
-//            )
-//        )
         binding.bottomNavigation.setupWithNavController(navController)
 
 
         val bottomNavigation: NavigationBarView = binding.bottomNavigation
         bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                com.example.goodmorningapp.R.id.notes -> {
+                R.id.notes -> {
+                    navController.navigate(R.id.noteFragment)
+                    true
+                }
+                R.id.weather -> {
+                    navController.navigate(R.id.weatherFragment)
 
-                    loadFragment(NoteFragment())
                     true
                 }
-                com.example.goodmorningapp.R.id.weather -> {
-                    loadFragment(WeatherFragment())
-                    true
-                }
-                com.example.goodmorningapp.R.id.money -> {
-                    loadFragment(MoneyFragment())
+                R.id.money -> {
+                    navController.navigate(R.id.moneyFragment)
+
                     true
                 }
                 else -> false
@@ -56,9 +48,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun loadFragment(fragment: Fragment) {
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(com.example.goodmorningapp.R.id.fragment_container, fragment)
-        ft.commit()
-    }
 }

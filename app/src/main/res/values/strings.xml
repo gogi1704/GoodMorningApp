@@ -3,6 +3,9 @@
     <string name="notes">Notes</string>
     <string name="weather">Weather</string>
     <string name="money">Money</string>
+    <string name="title_hint">Title</string>
+    <string name="content_hint">Content</string>
+    <string name="buttonadd_desc" translatable="false">buttonAdd_desc</string>
 
 
 </resources>

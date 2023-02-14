@@ -13,10 +13,23 @@
         android:id="@+id/noteFragment"
         android:name="com.example.goodmorningapp.ui.fragments.NoteFragment"
         android:label="fragment_note"
-        tools:layout="@layout/fragment_note" />
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_createNoteFragment"
+            app:destination="@id/createNoteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.goodmorningapp.ui.fragments.WeatherFragment"
         android:label="fragment_weather"
         tools:layout="@layout/fragment_weather" />
+    <fragment
+        android:id="@+id/createNoteFragment"
+        android:name="com.example.goodmorningapp.ui.fragments.CreateNoteFragment"
+        android:label="fragment_create_note"
+        tools:layout="@layout/fragment_create_note" >
+        <action
+            android:id="@+id/action_createNoteFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
 </navigation>
