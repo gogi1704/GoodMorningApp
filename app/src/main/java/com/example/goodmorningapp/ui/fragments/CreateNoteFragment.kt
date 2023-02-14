@@ -14,7 +14,7 @@ import com.example.goodmorningapp.databinding.FragmentCreateNoteBinding
 import com.example.goodmorningapp.viewModels.NoteViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Calendar
+import java.util.*
 
 @AndroidEntryPoint
 class CreateNoteFragment : Fragment() {
@@ -44,7 +44,7 @@ class CreateNoteFragment : Fragment() {
                 val note = NoteModel(
                     title = titleEditText.text.toString(),
                     content = contentEditText.text.toString(),
-                    published = Calendar.getInstance().time.toString()
+                    published = Calendar.getInstance(Locale("ru", "Ru")).time.toString()
                 )
                 noteViewModel.addNote(note)
                 findNavController().navigateUp()

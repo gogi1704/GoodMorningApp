@@ -7,7 +7,7 @@ data class NoteModel(
     val title: String? = null,
     val content: String,
     val published: String,
-    val isFavourite: Boolean? = null
+    val isFavourite: Boolean = false
 ) {
     fun toEntity(): NoteEntity = NoteEntity(id, title, content, published, isFavourite)
 

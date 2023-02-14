@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodmorningapp.data.models.NoteModel
 import com.example.goodmorningapp.databinding.RecyclerNoteItemBinding
+import com.example.goodmorningapp.extensions.parseDateTime
 
 class NoteRecyclerAdapter() :
     ListAdapter<NoteModel, NoteRecyclerAdapter.NoteViewHolder>(NoteDiffUtil()) {
@@ -29,7 +30,7 @@ class NoteRecyclerAdapter() :
             with(binding) {
                 textTitle.text = item.title ?: ""
                 textContent.text = item.content
-                textDate.text = item.published
+                textDate.parseDateTime(item.published)
                 buttonFavourite.setOnClickListener {
 
                 }

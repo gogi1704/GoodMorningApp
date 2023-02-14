@@ -10,5 +10,5 @@ data class NoteEntity(
     val title: String? = null,
     val content: String,
     val published: String,
-    val isFavourite: Boolean? = null
+    val isFavourite: Boolean = false
 )
