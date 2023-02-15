@@ -33,4 +33,10 @@ class NoteViewModel @Inject constructor(
         addNote(note.copy(isFavourite = !note.isFavourite))
     }
 
+    fun delete(id: Int) {
+        viewModelScope.launch {
+            noteRepository.deleteNote(id)
+        }
+    }
+
 }

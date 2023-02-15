@@ -8,4 +8,9 @@
     <string name="content_hint">Content</string>
     <string name="button_create_desc">button_create_desc</string>
     <string name="delete">Delete</string>
+    <string name="Are_you_sure">Are you sure ?</string>
+    <string name="Confirm_deleting_the_note">Confirm deleting the note.</string>
+    <string name="Delete">Delete</string>
+    <string name="Back">Back</string>
+
 </resources>

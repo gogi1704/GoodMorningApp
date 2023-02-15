@@ -12,7 +12,9 @@ interface NoteListener {
     fun favourite(noteModel: NoteModel)
 }
 
-class NoteRecyclerAdapter(private val listener: NoteListener?) :
+class NoteRecyclerAdapter(
+    private val listener: NoteListener?,
+) :
     ListAdapter<NoteModel, NoteRecyclerAdapter.NoteViewHolder>(NoteDiffUtil()) {
 
 
@@ -29,7 +31,7 @@ class NoteRecyclerAdapter(private val listener: NoteListener?) :
 
     class NoteViewHolder(
         private val binding: RecyclerNoteItemBinding,
-        private val listener: NoteListener?
+        private val listener: NoteListener?,
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -43,7 +45,9 @@ class NoteRecyclerAdapter(private val listener: NoteListener?) :
                     listener?.favourite(item)
                 }
 
+
             }
         }
     }
 }
+
