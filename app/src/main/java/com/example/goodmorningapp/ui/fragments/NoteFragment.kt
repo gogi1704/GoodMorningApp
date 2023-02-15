@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodmorningapp.R
-import com.example.goodmorningapp.data.models.NoteModel
+import com.example.goodmorningapp.data.models.note.NoteModel
 import com.example.goodmorningapp.databinding.FragmentNoteBinding
 import com.example.goodmorningapp.ui.adapters.recyclerAdapters.NoteListener
 import com.example.goodmorningapp.ui.adapters.recyclerAdapters.NoteRecyclerAdapter

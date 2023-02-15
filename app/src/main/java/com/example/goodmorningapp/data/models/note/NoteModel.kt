@@ -1,4 +1,4 @@
-package com.example.goodmorningapp.data.models
+package com.example.goodmorningapp.data.models.note
 
 import com.example.goodmorningapp.data.db.entities.NoteEntity
 

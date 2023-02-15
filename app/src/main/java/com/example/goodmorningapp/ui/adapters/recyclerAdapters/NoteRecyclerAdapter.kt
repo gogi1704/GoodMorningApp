@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.goodmorningapp.data.models.NoteModel
+import com.example.goodmorningapp.data.models.note.NoteModel
 import com.example.goodmorningapp.databinding.RecyclerNoteItemBinding
 import com.example.goodmorningapp.extensions.parseDateTime
 

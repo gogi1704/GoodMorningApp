@@ -1,7 +1,7 @@
 package com.example.goodmorningapp.repository
 
 import com.example.goodmorningapp.data.db.entities.NoteEntity
-import com.example.goodmorningapp.data.models.NoteModel
+import com.example.goodmorningapp.data.models.note.NoteModel
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {

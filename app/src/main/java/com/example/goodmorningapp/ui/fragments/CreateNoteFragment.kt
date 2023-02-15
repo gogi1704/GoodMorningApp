@@ -9,7 +9,7 @@ import androidx.activity.addCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.goodmorningapp.R
-import com.example.goodmorningapp.data.models.NoteModel
+import com.example.goodmorningapp.data.models.note.NoteModel
 import com.example.goodmorningapp.databinding.FragmentCreateNoteBinding
 import com.example.goodmorningapp.viewModels.NoteViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
