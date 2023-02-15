@@ -8,22 +8,21 @@ import com.google.gson.JsonObject
 import javax.inject.Inject
 
 class WeatherRepository @Inject constructor(private val weatherApi: WeatherApiService) {
-    val gson = Gson()
+    private val gson = Gson()
 
 
-
-    suspend fun getWeather():WeatherModel {
+    suspend fun getWeather(): WeatherModel {
         val response = weatherApi.getWeather("Rostov", 3, "ru")
         if (response.isSuccessful) {
             val body = response.body() ?: throw Exception()
-          return  parseWeather(body)
+            return parseWeather(body)
         } else {
             throw Exception()
         }
 
     }
 
-    fun parseWeather(json: JsonObject): WeatherModel {
+    private fun parseWeather(json: JsonObject): WeatherModel {
         val location = parseLocation(json.getAsJsonObject("location"))
         val currentWeather = parseCurrentWeather(json.getAsJsonObject("current"))
         val days = parseDays(json.getAsJsonObject("forecast").getAsJsonArray("forecastday"))

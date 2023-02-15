@@ -26,7 +26,7 @@ class NoteFavouriteFragment : Fragment() {
         adapter = NoteRecyclerAdapter(null)
         binding.recyclerFavourite.adapter = adapter
 
-        binding.appBar.setNavigationOnClickListener {
+        binding.buttonBack.setOnClickListener {
             findNavController().navigateUp()
         }
 

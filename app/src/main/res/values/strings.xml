@@ -12,7 +12,7 @@
     <string name="Confirm_deleting_the_note">Confirm deleting the note.</string>
     <string name="Delete">Delete</string>
     <string name="Back">Back</string>
-
+    <string name="bt_back">bt_back</string>
 
 
 </resources>
