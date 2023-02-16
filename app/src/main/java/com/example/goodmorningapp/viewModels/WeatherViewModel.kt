@@ -2,6 +2,7 @@ package com.example.goodmorningapp.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.goodmorningapp.data.models.weather.WeatherModel
 import com.example.goodmorningapp.repository.WeatherRepository
@@ -16,7 +17,16 @@ class WeatherViewModel @Inject constructor(
 ) :
     AndroidViewModel(application) {
 
-    var weatherModel: WeatherModel? = null
+    private var weatherModel: WeatherModel? = null
+        set(value) {
+            field = value
+            _weatherLivedata.value = value
+        }
+
+    private val _weatherLivedata = MutableLiveData(weatherModel)
+
+    val weatherLivedata
+        get() = _weatherLivedata
 
 
     init {

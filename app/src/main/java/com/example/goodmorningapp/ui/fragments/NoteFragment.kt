@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.goodmorningapp.R
 import com.example.goodmorningapp.data.models.note.NoteModel
 import com.example.goodmorningapp.databinding.FragmentNoteBinding
-import com.example.goodmorningapp.ui.adapters.recyclerAdapters.NoteListener
-import com.example.goodmorningapp.ui.adapters.recyclerAdapters.NoteRecyclerAdapter
-import com.example.goodmorningapp.ui.adapters.recyclerAdapters.SwipeToDeleteCallback
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.noteAdapter.NoteListener
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.noteAdapter.NoteRecyclerAdapter
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.noteAdapter.SwipeToDeleteCallback
 import com.example.goodmorningapp.viewModels.NoteViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

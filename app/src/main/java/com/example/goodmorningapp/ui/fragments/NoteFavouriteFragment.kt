@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.goodmorningapp.databinding.FragmentNoteFavouriteBinding
-import com.example.goodmorningapp.ui.adapters.recyclerAdapters.NoteRecyclerAdapter
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.noteAdapter.NoteRecyclerAdapter
 import com.example.goodmorningapp.viewModels.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

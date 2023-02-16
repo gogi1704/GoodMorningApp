@@ -15,6 +15,7 @@ class WeatherRepository @Inject constructor(private val weatherApi: WeatherApiSe
         val response = weatherApi.getWeather("Rostov", 3, "ru")
         if (response.isSuccessful) {
             val body = response.body() ?: throw Exception()
+            println(parseWeather(body))
             return parseWeather(body)
         } else {
             throw Exception()

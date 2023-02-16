@@ -12,5 +12,10 @@
     <string name="Confirm_deleting_the_note">Confirm deleting the note.</string>
     <string name="Delete">Delete</string>
     <string name="Back">Back</string>
+    <string name="by_days">By days :</string>
+    <string name="feels_like">Feels like : </string>
+    <string name="updated">updated:</string>
+    <string name="km_h">km/h</string>
+    <string name="percent">%</string>
 
 </resources>

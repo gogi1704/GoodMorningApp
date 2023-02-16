@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">GoodMorningApp</string>
     <string name="notes">Notes</string>
     <string name="weather">Weather</string>
@@ -12,7 +12,16 @@
     <string name="Confirm_deleting_the_note">Confirm deleting the note.</string>
     <string name="Delete">Delete</string>
     <string name="Back">Back</string>
-    <string name="bt_back">bt_back</string>
+    <string name="bt_back" tools:ignore="MissingTranslation">bt_back</string>
+    <string name="by_days">By days :</string>
+    <string name="cloud_desc" translatable="false">cloud_desc</string>
+    <string name="wind_desc" translatable="false">wind_desc</string>
+    <string name="humidity_desc" translatable="false">humidity_desc</string>
+    <string name="feels_like">Feels like : </string>
+    <string name="image_desc" translatable="false">image_desc</string>
+    <string name="updated">Updated:</string>
+    <string name="km_h">km/h</string>
+    <string name="percent">%</string>
 
 
 </resources>

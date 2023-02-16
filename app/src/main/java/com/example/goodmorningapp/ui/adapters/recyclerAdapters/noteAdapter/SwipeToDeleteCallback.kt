@@ -1,4 +1,4 @@
-package com.example.goodmorningapp.ui.adapters.recyclerAdapters
+package com.example.goodmorningapp.ui.adapters.recyclerAdapters.noteAdapter
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

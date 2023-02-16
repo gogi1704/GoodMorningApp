@@ -1,4 +1,4 @@
-package com.example.goodmorningapp.ui.adapters.recyclerAdapters
+package com.example.goodmorningapp.ui.adapters.recyclerAdapters.noteAdapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.goodmorningapp.data.models.note.NoteModel

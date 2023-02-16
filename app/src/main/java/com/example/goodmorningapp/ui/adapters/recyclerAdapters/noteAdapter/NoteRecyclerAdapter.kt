@@ -1,4 +1,4 @@
-package com.example.goodmorningapp.ui.adapters.recyclerAdapters
+package com.example.goodmorningapp.ui.adapters.recyclerAdapters.noteAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
