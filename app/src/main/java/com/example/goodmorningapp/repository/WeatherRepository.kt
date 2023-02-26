@@ -11,8 +11,8 @@ class WeatherRepository @Inject constructor(private val weatherApi: WeatherApiSe
     private val gson = Gson()
 
 
-    suspend fun getWeather(): WeatherModel {
-        val response = weatherApi.getWeather("Rostov", 3, "ru")
+    suspend fun getWeather(location:String): WeatherModel {
+        val response = weatherApi.getWeather(location, 3, "ru")
         if (response.isSuccessful) {
             val body = response.body() ?: throw Exception()
             println(parseWeather(body))
