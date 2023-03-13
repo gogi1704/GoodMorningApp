@@ -14,10 +14,10 @@
         android:title="@string/weather" />
 
     <item
-        android:id="@+id/money"
+        android:id="@+id/news"
         android:enabled="true"
-        android:icon="@drawable/ic_money_24"
-        android:title="@string/money" />
+        android:icon="@drawable/ic_baseline_newspaper_24"
+        android:title="@string/news" />
 
 
 

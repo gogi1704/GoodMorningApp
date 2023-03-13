@@ -2,7 +2,7 @@
     <string name="app_name">GoodMorningApp</string>
     <string name="notes">Notes</string>
     <string name="weather">Weather</string>
-    <string name="money">Money</string>
+    <string name="news">News</string>
     <string name="title_hint">Title</string>
     <string name="content_hint">Content</string>
     <string name="buttonadd_desc" translatable="false">buttonAdd_desc</string>
@@ -22,6 +22,7 @@
     <string name="updated">Updated:</string>
     <string name="km_h">km/h</string>
     <string name="percent">%</string>
+    <string name="The_last_search">The last search query was downloaded.</string>
 
 
 </resources>

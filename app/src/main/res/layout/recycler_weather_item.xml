@@ -28,6 +28,12 @@
                 android:id="@+id/condition_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -94,23 +100,7 @@
                 tools:ignore="HardcodedText" />
 
 
-<!--            <TextView-->
-<!--                android:id="@+id/feel"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/feels_like"-->
-<!--                app:layout_constraintEnd_toStartOf="@id/feelsLike_text"-->
-<!--                app:layout_constraintStart_toStartOf="@+id/tempMax_count_text"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/tempMin_count_text" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/feelsLike_text"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintEnd_toEndOf="@+id/tempMin_count_text"-->
-<!--                app:layout_constraintStart_toEndOf="@id/feel"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/tempMin_count_text"-->
-<!--                tools:text="21c" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

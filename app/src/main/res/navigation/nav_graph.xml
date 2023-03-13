@@ -5,11 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/noteFragment">
     <fragment
-        android:id="@+id/moneyFragment"
-        android:name="com.example.goodmorningapp.ui.fragments.MoneyFragment"
-        android:label="fragment_money"
-        tools:layout="@layout/fragment_money" />
-    <fragment
         android:id="@+id/noteFragment"
         android:name="com.example.goodmorningapp.ui.fragments.NoteFragment"
         android:label="fragment_note"
@@ -44,4 +39,9 @@
             android:id="@+id/action_noteFavouriteFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.goodmorningapp.ui.fragments.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>

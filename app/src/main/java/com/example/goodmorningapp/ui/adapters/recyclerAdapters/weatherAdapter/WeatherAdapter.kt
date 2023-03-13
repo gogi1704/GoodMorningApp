@@ -33,8 +33,7 @@ class WeatherAdapter() :
                 image.getImage("https:${item.day.condition.icon}")
                 tempMaxCountText.text = item.day.maxtemp_c
                 tempMinCountText.text = item.day.mintemp_c
-
-
+                conditionText.isSelected = true
             }
 
         }

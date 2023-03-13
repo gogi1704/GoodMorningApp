@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 
                     true
                 }
-                R.id.money -> {
-                    navController.navigate(R.id.moneyFragment)
+                R.id.news -> {
+                    navController.navigate(R.id.newsFragment)
 
                     true
                 }

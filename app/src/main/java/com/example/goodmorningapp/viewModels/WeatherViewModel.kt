@@ -12,6 +12,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.goodmorningapp.data.models.weather.WeatherModel
+import com.example.goodmorningapp.exceptions.ApiError
+import com.example.goodmorningapp.exceptions.ErrorType
+import com.example.goodmorningapp.exceptions.NetworkError
+import com.example.goodmorningapp.exceptions.WeatherErrorState
 import com.example.goodmorningapp.repository.WeatherRepository
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.tasks.CancellationTokenSource
@@ -31,14 +35,30 @@ class WeatherViewModel @Inject constructor(
             field = value
             _weatherLivedata.value = value
         }
-
     private val _weatherLivedata = MutableLiveData(weatherModel)
-
     val weatherLivedata
         get() = _weatherLivedata
 
+
+    private var errorState: WeatherErrorState = WeatherErrorState()
+    private val _errorStateLiveData = MutableLiveData(errorState)
+    val errorStateLiveData
+        get() = _errorStateLiveData
+
+
+    private var isLoading: Boolean = false
+        set(value) {
+            field = value
+            _isLoadingLiveData.value = value
+        }
+    private val _isLoadingLiveData = MutableLiveData(isLoading)
+    val isLoadingLiveData
+        get() = _isLoadingLiveData
+
+
     @RequiresApi(Build.VERSION_CODES.S)
     fun getWeatherLocal(context: Context, client: FusedLocationProviderClient) {
+        isLoading = true
 
         val token = CancellationTokenSource()
         if (ActivityCompat.checkSelfPermission(
@@ -53,22 +73,29 @@ class WeatherViewModel @Inject constructor(
         }
         client.getCurrentLocation(LocationRequest.QUALITY_HIGH_ACCURACY, token.token)
             .addOnCompleteListener {
+
                 viewModelScope.launch {
-                    weatherModel =
-                        weatherRepository.getWeather("${it.result.latitude},${it.result.longitude}")
+                    try {
+                        weatherModel =
+                            weatherRepository.getWeather("${it.result.latitude},${it.result.longitude}")
+                    } catch (e: NetworkError) {
+                        errorState = WeatherErrorState(errorType = ErrorType.NetworkError)
+                    } catch (e: ApiError) {
+                        errorState = WeatherErrorState(errorType = ErrorType.ApiError)
+                    }
+                    isLoading = false
                 }
 
             }
 
-
     }
 
-    fun getWeatherSearch(city: String){
+    fun getWeatherSearch(city: String) {
+        isLoading = true
         viewModelScope.launch {
             weatherModel =
                 weatherRepository.getWeather(city)
+            isLoading = false
         }
     }
-
-
 }

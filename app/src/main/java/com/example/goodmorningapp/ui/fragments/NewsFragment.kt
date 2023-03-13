@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.goodmorningapp.R
 
-class MoneyFragment : Fragment() {
+class NewsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_money, container, false)
+        return inflater.inflate(R.layout.fragment_news, container, false)
     }
 }
