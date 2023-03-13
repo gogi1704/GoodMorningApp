@@ -18,6 +18,7 @@
     <string name="km_h">km/h</string>
     <string name="percent">%</string>
     <string name="The_last_search">Загружена последння искомая локация.</string>
+    <string name="check_source">Смотреть источник</string>
 
 
 </resources>

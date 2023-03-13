@@ -46,7 +46,7 @@ class WeatherFragment : Fragment() {
             Toast.makeText(
                 requireContext(),
                 R.string.The_last_search,
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
         super.onAttach(context)

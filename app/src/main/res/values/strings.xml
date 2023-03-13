@@ -23,6 +23,7 @@
     <string name="km_h">km/h</string>
     <string name="percent">%</string>
     <string name="The_last_search">The last search query was downloaded.</string>
+    <string name="check_source">check source</string>
 
 
 </resources>
