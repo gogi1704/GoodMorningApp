@@ -8,8 +8,8 @@ import com.example.goodmorningapp.data.models.weather.WeatherDay
 import com.example.goodmorningapp.databinding.RecyclerWeatherItemBinding
 import com.example.goodmorningapp.extensions.getImage
 
-class WeatherAdapter() :
-    ListAdapter<WeatherDay, WeatherAdapter.WeatherViewHolder>(WeatherDiffUtil()) {
+class WeatherRecyclerAdapter() :
+    ListAdapter<WeatherDay, WeatherRecyclerAdapter.WeatherViewHolder>(WeatherDiffUtil()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {

@@ -98,4 +98,6 @@ class WeatherViewModel @Inject constructor(
             isLoading = false
         }
     }
+
+
 }

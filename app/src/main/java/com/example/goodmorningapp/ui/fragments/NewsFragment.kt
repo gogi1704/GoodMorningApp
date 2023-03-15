@@ -5,15 +5,39 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.goodmorningapp.R
+import androidx.fragment.app.activityViewModels
+import com.example.goodmorningapp.databinding.FragmentNewsBinding
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.newsAdapter.NewsRecyclerAdapter
+import com.example.goodmorningapp.viewModels.NewsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewsFragment : Fragment() {
+    private lateinit var binding: FragmentNewsBinding
+    private lateinit var adapter: NewsRecyclerAdapter
+    private val newsViewModel: NewsViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news, container, false)
+    ): View {
+        binding = FragmentNewsBinding.inflate(layoutInflater, container, false)
+        adapter = NewsRecyclerAdapter()
+        binding.recyclerNews.adapter = adapter
+
+        newsViewModel.getNews()
+
+
+        newsViewModel.liveData.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+
+
+
+
+
+
+        return binding.root
     }
 }

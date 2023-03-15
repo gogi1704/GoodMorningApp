@@ -1,6 +1,6 @@
 package com.example.goodmorningapp.repository
 
-import com.example.goodmorningapp.api.WeatherApiService
+import com.example.goodmorningapp.api.ApiService
 import com.example.goodmorningapp.data.models.weather.*
 import com.example.goodmorningapp.exceptions.ApiError
 import com.example.goodmorningapp.exceptions.NetworkError
@@ -10,7 +10,7 @@ import com.google.gson.JsonObject
 import java.io.IOException
 import javax.inject.Inject
 
-class WeatherRepository @Inject constructor(private val weatherApi: WeatherApiService) {
+class WeatherRepository @Inject constructor(private val weatherApi: ApiService) {
     private val gson = Gson()
 
 
@@ -19,7 +19,6 @@ class WeatherRepository @Inject constructor(private val weatherApi: WeatherApiSe
             val response = weatherApi.getWeather(location, 3, "ru")
             if (response.isSuccessful) {
                 val body = response.body() ?: throw ApiError(response.message())
-                println(parseWeather(body))
                 return parseWeather(body)
             } else {
                 throw ApiError(response.message())
@@ -53,5 +52,6 @@ class WeatherRepository @Inject constructor(private val weatherApi: WeatherApiSe
         val days = gson.fromJson(json, Array<WeatherDay>::class.java)
         return days
     }
+
 
 }

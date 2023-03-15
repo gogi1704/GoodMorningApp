@@ -19,7 +19,7 @@ import com.example.goodmorningapp.R
 import com.example.goodmorningapp.databinding.FragmentWeatherBinding
 import com.example.goodmorningapp.extensions.getImage
 import com.example.goodmorningapp.extensions.isPermissionsGranted
-import com.example.goodmorningapp.ui.adapters.recyclerAdapters.weatherAdapter.WeatherAdapter
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.weatherAdapter.WeatherRecyclerAdapter
 import com.example.goodmorningapp.ui.constans.LOCATION_KEY
 import com.example.goodmorningapp.viewModels.WeatherViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -31,7 +31,7 @@ class WeatherFragment : Fragment() {
     private lateinit var binding: FragmentWeatherBinding
     private lateinit var pLauncher: ActivityResultLauncher<String>
     private lateinit var client: FusedLocationProviderClient
-    private lateinit var adapter: WeatherAdapter
+    private lateinit var adapter: WeatherRecyclerAdapter
     private val weatherViewModel: WeatherViewModel by activityViewModels()
     private lateinit var prefs: SharedPreferences
 
@@ -59,7 +59,7 @@ class WeatherFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentWeatherBinding.inflate(layoutInflater, container, false)
-        adapter = WeatherAdapter()
+        adapter = WeatherRecyclerAdapter()
         binding.weatherRecycler.adapter = adapter
         pLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {}
 

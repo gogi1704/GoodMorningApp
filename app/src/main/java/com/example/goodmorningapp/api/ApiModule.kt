@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @Module
 class ApiModule {
     companion object {
-        const val BASE_URL = "https://api.weatherapi.com/v1/"
+        const val WEATHER_BASE_URL = "https://api.weatherapi.com/v1/"
     }
 
     @Singleton
@@ -39,11 +39,11 @@ class ApiModule {
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BASE_URL)
+        .baseUrl(WEATHER_BASE_URL)
         .client(client)
         .build()
 
     @Singleton
     @Provides
-    fun provideWeatherApiService(retrofit: Retrofit):WeatherApiService = retrofit.create()
+    fun provideWeatherApiService(retrofit: Retrofit): ApiService = retrofit.create()
 }
