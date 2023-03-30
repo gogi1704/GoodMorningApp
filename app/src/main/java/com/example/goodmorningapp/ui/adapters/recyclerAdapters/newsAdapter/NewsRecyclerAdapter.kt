@@ -9,7 +9,11 @@ import com.example.goodmorningapp.data.models.news.NewsModel
 import com.example.goodmorningapp.databinding.RecyclerNewsItemBinding
 import com.example.goodmorningapp.extensions.getImage
 
-class NewsRecyclerAdapter() :
+interface NewsClickListener{
+    fun clickCheckSource(url:String)
+}
+
+class NewsRecyclerAdapter(private val listener: NewsClickListener) :
     ListAdapter<NewsModel, NewsRecyclerAdapter.NewsViewHolder>(NewsDiffUtil()) {
 
 
@@ -17,7 +21,7 @@ class NewsRecyclerAdapter() :
         val binding =
             RecyclerNewsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return NewsViewHolder(binding)
+        return NewsViewHolder(binding , listener)
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
@@ -25,7 +29,7 @@ class NewsRecyclerAdapter() :
     }
 
 
-    class NewsViewHolder(private val binding: RecyclerNewsItemBinding) :
+    class NewsViewHolder(private val binding: RecyclerNewsItemBinding , private val listener: NewsClickListener) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: NewsModel) {
             with(binding) {
@@ -38,6 +42,10 @@ class NewsRecyclerAdapter() :
                     imageNews.visibility = View.GONE
                 }
                 textPublishedAt.text = item.publishedAt
+
+                textCheckSource.setOnClickListener {
+                    listener.clickCheckSource(item.url)
+                }
             }
 
 

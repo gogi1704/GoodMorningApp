@@ -43,6 +43,7 @@ class NewsViewModel @Inject constructor(
 
     fun getNews(){
         val listNews = mutableListOf<NewsModel>()
+        newsStateData = newsStateData.copy(isLoading = true)
         viewModelScope.launch {
             if (usedSourcesIds!= null){
                 for (source in usedSourcesIds!!) {
@@ -50,7 +51,8 @@ class NewsViewModel @Inject constructor(
                 }
             }
             newsStateData = newsStateData.copy(
-                listNewsModel = listNews
+                listNewsModel = listNews ,
+                isLoading = false
             )
         }
 
