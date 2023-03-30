@@ -6,15 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.example.goodmorningapp.data.models.news.NewsSourceModel
 import com.example.goodmorningapp.databinding.FragmentNewsBinding
 import com.example.goodmorningapp.ui.adapters.recyclerAdapters.newsAdapter.NewsRecyclerAdapter
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.newsSourcesAdapter.NewsSourcesClickListener
+import com.example.goodmorningapp.ui.adapters.recyclerAdapters.newsSourcesAdapter.NewsSourcesRecyclerAdapter
 import com.example.goodmorningapp.viewModels.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
     private lateinit var binding: FragmentNewsBinding
-    private lateinit var adapter: NewsRecyclerAdapter
+    private lateinit var newsAdapter: NewsRecyclerAdapter
+    private lateinit var newsSourcesAdapter: NewsSourcesRecyclerAdapter
     private val newsViewModel: NewsViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -22,22 +26,32 @@ class NewsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNewsBinding.inflate(layoutInflater, container, false)
-        adapter = NewsRecyclerAdapter()
-        binding.recyclerNews.adapter = adapter
+        newsAdapter = NewsRecyclerAdapter()
+        newsSourcesAdapter = NewsSourcesRecyclerAdapter(object : NewsSourcesClickListener {
+            override fun clickCheckBox(source:NewsSourceModel) {
+               newsViewModel.check(source)
+            }
 
-        newsViewModel.getNews()
+        })
+        binding.recyclerNews.adapter = newsAdapter
+        binding.recyclerNewsSources.adapter = newsSourcesAdapter
 
 
-        newsViewModel.liveData.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+        newsViewModel.newsStateLiveData.observe(viewLifecycleOwner) {
+            newsAdapter.submitList(it.listNewsModel)
+
         }
 
-
-
-
+        newsViewModel.newsSourcesData.observe(viewLifecycleOwner){ list ->
+            newsSourcesAdapter.submitList(list)
+            newsViewModel.usedSourcesIds = list?.filter { it.isUsed }?.map { it.id }?.toMutableList()
+            newsViewModel.getNews()
+        }
 
 
 
         return binding.root
     }
+
+
 }

@@ -18,6 +18,7 @@ import javax.inject.Singleton
 class ApiModule {
     companion object {
         const val WEATHER_BASE_URL = "https://api.weatherapi.com/v1/"
+
     }
 
     @Singleton

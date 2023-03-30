@@ -3,6 +3,7 @@ package com.example.goodmorningapp.data.db.di
 import android.content.Context
 import androidx.room.Room
 import com.example.goodmorningapp.data.db.AppDb
+import com.example.goodmorningapp.data.db.dao.NewsSourceDao
 import com.example.goodmorningapp.data.db.dao.NoteDao
 import dagger.Module
 import dagger.Provides
@@ -28,4 +29,8 @@ class DbModule {
     @Singleton
     @Provides
     fun providesNoteDao(appDb: AppDb): NoteDao = appDb.noteDao()
+
+    @Singleton
+    @Provides
+    fun providesNewsSourceDao(appDb: AppDb):NewsSourceDao = appDb.newsSourceDao()
 }

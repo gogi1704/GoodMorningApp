@@ -3,10 +3,14 @@ package com.example.goodmorningapp.viewModels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.goodmorningapp.data.models.news.NewsModel
+import com.example.goodmorningapp.data.models.news.NewsSourceModel
+import com.example.goodmorningapp.data.models.news.NewsStateModel
 import com.example.goodmorningapp.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,16 +20,58 @@ class NewsViewModel @Inject constructor(
     private val newsRepository: NewsRepository
 ) : AndroidViewModel(application) {
 
-    var data = emptyList<NewsModel>()
-    set(value) {
-        field = value
-        liveData.value = value
-    }
-    val liveData = MutableLiveData(data)
+    private var newsStateData = NewsStateModel()
+        set(value) {
+            field = value
+            _newsStateLiveData.value = value
+        }
 
-    fun getNews() {
+    private val _newsStateLiveData = MutableLiveData(newsStateData)
+
+    val newsStateLiveData
+        get() = _newsStateLiveData
+
+
+    val newsSourcesData = newsRepository.newsDataFlow.asLiveData(Dispatchers.Default)
+    var usedSourcesIds = newsSourcesData.value?.filter { it.isUsed }?.map { it.id }?.toMutableList()
+
+
+    init {
+        getNewsSources()
+    }
+
+
+    fun getNews(){
+        val listNews = mutableListOf<NewsModel>()
         viewModelScope.launch {
-        data = newsRepository.getNewsRbc("https://newsapi.org/v2/top-headlines?sources=rbc&apiKey=484b05f2fc4f4f158f18be170b7796ae")
+            if (usedSourcesIds!= null){
+                for (source in usedSourcesIds!!) {
+                    listNews.addAll(newsRepository.getNews(source))
+                }
+            }
+            newsStateData = newsStateData.copy(
+                listNewsModel = listNews
+            )
+        }
+
+    }
+
+    private fun getNewsSources() {
+        viewModelScope.launch {
+            newsRepository.getNewsSources()
+       }
+
+    }
+
+
+    fun check(source: NewsSourceModel) {
+        if (usedSourcesIds?.contains(source.id) == true) {
+            usedSourcesIds!!.remove(source.id)
+        }else {
+           usedSourcesIds?.add(source.id)
+        }
+        viewModelScope.launch{
+            newsRepository.check(source.id)
         }
     }
 }

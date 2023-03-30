@@ -1,6 +1,7 @@
 package com.example.goodmorningapp.ui.adapters.recyclerAdapters.newsAdapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -24,12 +25,18 @@ class NewsRecyclerAdapter() :
     }
 
 
-    class NewsViewHolder(private val binding: RecyclerNewsItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class NewsViewHolder(private val binding: RecyclerNewsItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: NewsModel) {
-            with(binding){
+            with(binding) {
                 textTitle.text = item.title
-                textNewsContent.text = item.description
-                imageNews.getImage(item.urlToImage)
+                textNewsContent.text = item.description ?: ""
+                if (item.urlToImage != null && item.urlToImage.isNotBlank()) {
+                    imageNews.visibility = View.VISIBLE
+                    imageNews.getImage(item.urlToImage)
+                } else {
+                    imageNews.visibility = View.GONE
+                }
                 textPublishedAt.text = item.publishedAt
             }
 
